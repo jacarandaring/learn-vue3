@@ -6,6 +6,19 @@ const posts = [
 	{ id: 5, title: 'title5', content: 'content5', createdAt: '2025-01-05' },
 ];
 
+/**
+ * post 데이터 목록 출력
+ * @returns post 목록
+ */
 export function getPostList() {
 	return posts;
+}
+
+/**
+ * ID에 해당하는 post 데이터 출력
+ * @param {String} id post의 id
+ * @returns post 데이터
+ */
+export function getPostById(id) {
+	return posts.find(post => post.id === id);
 }

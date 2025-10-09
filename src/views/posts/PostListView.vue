@@ -11,12 +11,18 @@
 				/>
 			</div>
 		</div>
+		<!-- 미리보기 -->
+		<AppCard>
+			<PostDetailView :id="1" />
+		</AppCard>
 	</div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import AppCard from '@/components/AppCard.vue';
 import PostItem from '@/components/posts/PostItem.vue';
+import PostDetailView from '@/views/posts/PostDetailView.vue';
 import { getPostList } from '@/api/posts';
 import { useRouter } from 'vue-router';
 
