@@ -1,16 +1,16 @@
 <template>
 	<div>
-		<TheNav />
+		<TheHeader />
 		<TheView />
 	</div>
 </template>
 
 <script>
-import TheNav from './components/TheNav.vue';
-import TheView from './components/TheView.vue';
+import TheHeader from '@/layouts/TheHeader.vue';
+import TheView from '@/layouts/TheView.vue';
 export default {
 	components: {
-		TheNav,
+		TheHeader,
 		TheView,
 	},
 };
