@@ -16,6 +16,11 @@
                 게시글
                 </RouterLink>
             </li>
+            <li>
+                <RouterLink to="/nested">
+                Nested
+                </RouterLink>
+            </li>
         </ul>
         <div>
             <button @click="goPage">
