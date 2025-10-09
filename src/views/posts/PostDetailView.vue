@@ -25,10 +25,20 @@
 </template>
 
 <script setup>
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
+import { getPostById } from '@/api/posts';
+const props = defineProps({
+    id: String, // route.params.id -> routes 상수에서 props 활성화
+});
+// 라우팅
 const router = useRouter();
-const route = useRoute();
-const id = route.params.id;
 const goList = () => router.push({ name: 'PostList' });
-const goEdit = () => router.push({ name: 'PostEdit', params: { id } });
+const goEdit = () => router.push({ name: 'PostEdit', params: { props.id } });
+// post 정보 조회
+const form = ref({});
+const setPostData = () => {
+    const data = getPostById(props.id);
+    form.value = { ...data };
+};
+setPostData();
 </script>

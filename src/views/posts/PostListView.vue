@@ -10,11 +10,17 @@
                     @click="goPage(post.id)" />
             </div>
         </div>
+        <!-- 미리보기 -->
+        <AppCard>
+            <PostDetailView :id="1" />
+        </AppCard>
     </div>
 </template>
 
 <script setup>
+import AppCard from '@/components/AppCard';
 import PostItem from '@/components/posts/PostItem';
+import PostDetailView from '@/components/posts/PostDetailView';
 import { getPostList } from '@/api/posts';
 import { useRouter } from 'vue-router';
 
