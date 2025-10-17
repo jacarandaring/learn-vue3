@@ -11,24 +11,20 @@
 				/>
 			</div>
 		</div>
-		<!-- 미리보기 -->
-		<AppCard>
-			<PostDetailView :id="1" />
-		</AppCard>
 	</div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import AppCard from '@/components/AppCard.vue';
 import PostItem from '@/components/posts/PostItem.vue';
-import PostDetailView from '@/views/posts/PostDetailView.vue';
 import { getPostList } from '@/api/posts';
 import { useRouter } from 'vue-router';
 
 const posts = ref([]);
-const setPostList = () => {
-	posts.value = getPostList();
+const setPostList = async () => {
+	const { data } = await getPostList();
+	// console.dir(response); // Object 타입에 적합
+	posts.value = data;
 };
 setPostList();
 
