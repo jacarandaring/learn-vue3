@@ -25,8 +25,10 @@ import { getPostList } from '@/api/posts';
 import { useRouter } from 'vue-router';
 
 const posts = ref([]);
-const setPostList = () => {
-    posts.value = getPostList();
+const setPostList = async () => {
+    const { data } = await getPostList();
+    // console.dir(response); // Object 타입에 적합
+    posts.value = data;
 };
 setPostList();
 
