@@ -13,75 +13,75 @@ import NestedTwoView from '@/views/nested/NestedTwoView.vue';
 import NestedHomeView from '@/views/nested/NestedHomeView.vue';
 
 const routes = [
-    {
-        name: 'Home',
-        path: '/',
-        component: HomeView,
-    },
-    {
-        name: 'About',
-        path: '/about',
-        component: AboutView,
-    },
-    {
-        name: 'PostList',
-        path: '/posts',
-        component: PostListView,
-    },
-    {
-        name: 'PostCreate',
-        path: '/posts/create',
-        component: PostCreateView,
-    },
-    {
-        name: 'PostDetail',
-        path: '/posts/:id',
-        component: PostDetailView,
-        // props: true,
-        props: route => ({
-            id: Number(route.params.id),
-        }),
-    },
-    {
-        name: 'PostEdit',
-        path: '/posts/:id/edit',
-        component: PostEditView,
-    },
-    {
-        path: '/:pathMatch(.*)*',
-        name: 'NotFound',
-        component: NotFoundView,
-    },
-    {
-        path: '/nested',
-        name: 'Nested',
-        component: NestedView,
-        children: [
-            {
-                // /nested
-                path: '',
-                name: 'NestedHome',
-                component: NestedHomeView,
-            },
-            {
-                // /nested/one
-                path: 'one',
-                name: 'NestedOne',
-                component: NestedOneView,
-            },
-            {
-                // /nested/two
-                path: 'two',
-                name: 'NestedTwo',
-                component: NestedTwoView,
-            },
-        ],
-    },
+	{
+		name: 'Home',
+		path: '/',
+		component: HomeView,
+	},
+	{
+		name: 'About',
+		path: '/about',
+		component: AboutView,
+	},
+	{
+		name: 'PostList',
+		path: '/posts',
+		component: PostListView,
+	},
+	{
+		name: 'PostCreate',
+		path: '/posts/create',
+		component: PostCreateView,
+	},
+	{
+		name: 'PostDetail',
+		path: '/posts/:id',
+		component: PostDetailView,
+		// props: true,
+		props: route => ({
+			id: Number(route.params.id),
+		}),
+	},
+	{
+		name: 'PostEdit',
+		path: '/posts/:id/edit',
+		component: PostEditView,
+	},
+	{
+		path: '/:pathMatch(.*)*',
+		name: 'NotFound',
+		component: NotFoundView,
+	},
+	{
+		path: '/nested',
+		name: 'Nested',
+		component: NestedView,
+		children: [
+			{
+				// /nested
+				path: '',
+				name: 'NestedHome',
+				component: NestedHomeView,
+			},
+			{
+				// /nested/one
+				path: 'one',
+				name: 'NestedOne',
+				component: NestedOneView,
+			},
+			{
+				// /nested/two
+				path: 'two',
+				name: 'NestedTwo',
+				component: NestedTwoView,
+			},
+		],
+	},
 ];
 
 const router = createRouter({
-    history: createWebHistory('/'),
-    routes,
+	history: createWebHistory('/'),
+	routes,
 });
 
 export default router;
