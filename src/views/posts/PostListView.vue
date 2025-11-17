@@ -20,17 +20,26 @@ import PostItem from '@/components/posts/PostItem.vue';
 import { getPostList } from '@/api/posts';
 import { useRouter } from 'vue-router';
 
+/**
+ * post 목록 조회
+ */
 const posts = ref([]);
 const setPostList = async () => {
-	const { data } = await getPostList();
-	// console.dir(response); // Object 타입에 적합
-	posts.value = data;
+	try {
+		const { data } = await getPostList();
+		// console.dir(response); // Object 타입에 적합
+		posts.value = data;
+	} catch (error) {
+		console.error(error);
+	}
 };
 setPostList();
 
+/**
+ * 라우팅 - 상세 페이지
+ */
 const router = useRouter();
 const goPage = id => {
-	// router.push(`posts/${id}`);
 	router.push({
 		name: 'PostDetail',
 		params: {
